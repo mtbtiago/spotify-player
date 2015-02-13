@@ -1,52 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Spotify preview widget</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Spotify preview widget</h1>
-    <img id="logo" src="spotify-logo.jpg">
-    <p id="subtitle">Play a 30-second preview of your favorite music!</p>
+<!-- http://www.taringa.net/posts/videos/17532834/Curso-de-Bootstrap-3-1-Video-Tutoriales-Espanol.html -->
 
-    <div class="widget">
-      <div class="header">
-        <div class="btn-play disabled"></div>
+<head>
+  <meta charset="UTF-8">
+  <title>Spotify Players</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="jquery.min.js"></script>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="bootstrap.min.js"></script>
+  <link rel="stylesheet" href="application.min.css">
+</head>
 
-        <div class="metadata">
-          <p class="title">Song title</p>
-          <p class="author">Song author</p>
+<body>
 
-          <div class="seekbar">
-            <progress value="13" max="30"></progress>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <form class="navbar-form navbar-left" role="search">
+          <a href="#" class="navbar-brand">Spotify Player</a>
+          <div class="form-group">
+            <input type="text" class="form-control search_song" placeholder="Search">
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#search" data-toggle="tab">Search results</a>
+          </li>
+          <li><a href="#playing" data-toggle="tab">Now playing</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+
+          <div class="tab-pane fade in active" id="search">
+            <ul>
+              <li>
+                <h3>Song's title</h3>
+                <h4>Author</h4>
+              </li>
+              <li>
+                <h3>Song's title</h3>
+                <h4>Author</h4>
+              </li>
+              <li>
+                <h3>Song's title</h3>
+                <h4>Author</h4>
+              </li>
+              <li>
+                <h3>Song's title</h3>
+                <h4>Author</h4>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tab-pane fade" id="playing">
+            <div class="widget">
+              <div class="header">
+                <div class="btn-play disabled"></div>
+
+                <div class="metadata">
+                  <p class="title">Song title</p>
+                  <p class="author">Song author</p>
+
+                  <div class="seekbar">
+                    <progress value="1" max="30"></progress>
+                  </div>
+                </div>
+              </div>
+              <div class="cover">
+                <img src="images/default.jpg">
+              </div>
+              <audio id="audio"></audio>
+            </div>
+
           </div>
         </div>
       </div>
-      <div class="cover">
-        <img src="https://i.scdn.co/image/4df66c8b705efa6dd3be4e884fe2ca8779fd4fc9"/>
-      </div>
-
-      <audio id="audio"></audio>
     </div>
 
-    <form id ="URI" class="empty">
-      <input type="text" name="track" value="spotify:track:2rjOaGr1mcTYePllS8crRf" />
-      <button type="submit">Load track</button>
-    </form>
+  </div>
 
-    <form id="Search">
-      <input type="text" name="query"/>
-      <button type="submit">Search</button>
-    </form>
+  <script src="application.min.js"></script>
 
-    <ul id="results" class="list empty">
-      <li><a href="spotify:track:2rjOaGr1mcTYePllS8crRf">
-        <span class="artist">artist name</span>
-        <span class="song">song name</span>
-        <img class="cover"></img>
-      </a></li>
-    </ul>
-    <script src="metadata.js"></script>
-  </body>
+</body>
+
 </html>
